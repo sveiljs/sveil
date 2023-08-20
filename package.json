@@ -1,4 +1,29 @@
 {
+  "name": "@sveil/core",
+  "version": "1.0.0",
+  "description": "Sveil core",
+  "main": "dist/index.js",
+  "engines": {
+    "node": ">= 16"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sveiljs/sveil"
+  },
+  "bugs": {
+    "url": "https://github.com/sveiljs/sveil/issues"
+  },
+  "homepage": "https://github.com/sveiljs/sveil#readme",
+  "keywords": [
+    "svelte",
+    "sveil"
+  ],
+  "author": "Alexei Danilin (Alex Dan)",
+  "license": "MIT",
   "dependencies": {
     "svelte": "^4.2.0"
   },

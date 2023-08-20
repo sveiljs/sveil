@@ -26,7 +26,10 @@ export class Subscribitions {
   private subscriptions: Unsubscriber[] = [];
 
   constructor(state: SvelteComponentState | string) {
-    const innerState = typeof state === "string" ? getContext("state") : state;
+    const innerState =
+      typeof state === "string"
+        ? (getContext("state") as SvelteComponentState)
+        : state;
 
     for (const [key, value] of Object.entries(innerState)) {
       if (typeof value === "function") {
