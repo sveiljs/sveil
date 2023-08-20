@@ -51,14 +51,11 @@ export class Subscribitions {
     this.subscriptions = [...this.subscriptions, ...sub];
   }
 
-  protected addMethod<T = void>(
-    fnName: string,
-    storeMethod: (data?: any) => T
-  ) {
+  private addMethod<T = void>(fnName: string, storeMethod: (data?: any) => T) {
     this[fnName] = storeMethod.bind(this);
   }
 
-  protected subscribeStore<T>(
+  private subscribeStore<T>(
     store: Writable<T> | Readable<T>,
     callback: Subscriber<T> | string
   ) {
