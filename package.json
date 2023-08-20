@@ -1,6 +1,6 @@
 {
   "name": "@sveil/core",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Sveil core",
   "main": "dist/cjs/index.js",
   "module": "dist/mjs/index.js",
@@ -10,6 +10,10 @@
       "require": "./dist/cjs/index.js"
     }
   },
+  "types": "dist/cjs/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "engines": {
     "node": ">= 16"
   },
