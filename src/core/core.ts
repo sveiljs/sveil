@@ -1,4 +1,3 @@
-import { getContext, onDestroy } from "svelte";
 import { Readable, Subscriber, Unsubscriber, Writable } from "svelte/store";
 
 export type SvelteStore<T> = Writable<T> | Readable<T>;
@@ -33,10 +32,10 @@ export class Subscribitions {
         this.watchLocalStoreValue(key, value);
       }
     }
+  }
 
-    onDestroy(() => {
-      this.subscriptions.forEach((unsubscription) => unsubscription());
-    });
+  public unsubscribe() {
+    this.subscriptions.forEach((unsubscription) => unsubscription());
   }
 
   protected addSubscription(unsubscriptions: Unsubscriber | Unsubscriber[]) {
