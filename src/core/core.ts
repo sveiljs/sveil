@@ -14,7 +14,7 @@ export type extractGeneric<Type> = Type extends SvelteStore<infer X>
   : never;
 
 type MapToSubscribitions<T> = {
-  [K in keyof T as T[K] extends Function
+  readonly [K in keyof T as T[K] extends Function
     ? K
     : `$${K & string}`]: T[K] extends Function ? T[K] : extractGeneric<T[K]>;
 } & T;
@@ -33,9 +33,9 @@ export class Subscribitions {
 
     for (const [key, value] of Object.entries(innerState)) {
       if (typeof value === "function") {
-        this.addMethod(key, value);
+        this.addStoreMethod(key, value);
       } else {
-        this.subscribeStore(value, key);
+        this.watchLocalStoreValue(key, value);
       }
     }
 
@@ -51,26 +51,33 @@ export class Subscribitions {
     this.subscriptions = [...this.subscriptions, ...sub];
   }
 
-  private addMethod<T = void>(fnName: string, storeMethod: (data?: any) => T) {
+  protected subscribeStore<T>(
+    store: Writable<T> | Readable<T>,
+    callback: Subscriber<T>
+  ) {
+    this.addSubscription(store.subscribe(callback.bind(this)));
+  }
+
+  private watchLocalStoreValue<T>(
+    storeName: string,
+    store: Writable<T> | Readable<T>
+  ) {
+    this.addSubscription(
+      store.subscribe((data) => {
+        this.storeValueSubscriber.call(this, data, storeName);
+      })
+    );
+    this[storeName] = store;
+  }
+
+  private addStoreMethod<T = void>(
+    fnName: string,
+    storeMethod: (data?: any) => T
+  ) {
     this[fnName] = storeMethod.bind(this);
   }
 
-  private subscribeStore<T>(
-    store: Writable<T> | Readable<T>,
-    callback: Subscriber<T> | string
-  ) {
-    if (typeof callback === "function") {
-      this.addSubscription(store.subscribe(callback.bind(this)));
-    } else {
-      this.addSubscription(
-        store.subscribe((data) => {
-          this.storeCallback.call(this, data, callback);
-        })
-      );
-    }
-  }
-
-  private storeCallback<T>(data: T, internalPropName: string) {
-    (this as any)[`$${internalPropName}`] = data;
+  private storeValueSubscriber<T>(data: T, storeName: string) {
+    this[`$${storeName}`] = data;
   }
 }
