@@ -34,7 +34,7 @@ export class Subscribitions {
     }
   }
 
-  public unsubscribe() {
+  public unsubscribeAll() {
     this.subscriptions.forEach((unsubscription) => unsubscription());
   }
 

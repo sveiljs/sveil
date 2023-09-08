@@ -1,6 +1,6 @@
 {
   "name": "@sveil/core",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Sveil core",
   "main": "dist/cjs/index.js",
   "module": "dist/mjs/index.js",
