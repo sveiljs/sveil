@@ -16,7 +16,7 @@
     "skipLibCheck": true,
     "strict": true,
     "traceResolution": false,
-    "inlineSourceMap": true
+    "inlineSourceMap": false
   },
   "compileOnSave": false,
   "exclude": ["node_modules", "dist"],
