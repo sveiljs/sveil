@@ -5,7 +5,6 @@
     "baseUrl": "src",
     "declaration": true,
     "esModuleInterop": true,
-    "inlineSourceMap": false,
     "lib": ["esnext"],
     "listEmittedFiles": false,
     "listFiles": false,
@@ -17,7 +16,7 @@
     "skipLibCheck": true,
     "strict": true,
     "traceResolution": false,
-    "sourceMap": true
+    "inlineSourceMap": true
   },
   "compileOnSave": false,
   "exclude": ["node_modules", "dist"],
