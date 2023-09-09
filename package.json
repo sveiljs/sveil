@@ -19,7 +19,7 @@
   },
   "scripts": {
     "build": "rm -fr dist/* && tsc -p tsconfig-mjs.json && tsc -p tsconfig-cjs.json && fixup.sh",
-    "patch-version": "npm version patch && git add package.json && git commit -m 'Bump up version' && git push",
+    "patch-version": "npm version patch && git push",
     "circulate": "npm run build && npm run patch-version && npm publish --access public",
     "test": "exit 0"
   },
