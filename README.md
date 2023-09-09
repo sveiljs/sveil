@@ -1,5 +1,8 @@
 # sveil (alpha version)
-Sveil core (not for prod yet). Auto subscribe for svelte stores.
+Sveil core (not for prod yet). 
+
+- Allow to subscribe for svelte stores (with unsubscribeAll option)
+- Allow to get current value of store with $ sign (emulate svelte file behaiour)
 
 ## Basic example
 ```
