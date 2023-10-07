@@ -24,7 +24,7 @@ export class Subscribitions {
   [key: string]: any;
   private subscriptions: Unsubscriber[] = [];
 
-  constructor(state: SvelteComponentState | string) {
+  constructor(state: SvelteComponentState) {
     for (const [key, value] of Object.entries(state)) {
       if (typeof value === "function") {
         this.addStoreMethod(key, value);
