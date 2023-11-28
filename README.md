@@ -23,7 +23,7 @@ export interface ComponentService extends SubscribitionsBase<State> {}
 export class ComponentService extends Subscribitions {
 	constructor(state: State) {
 		super(state);
-		// after super value of counter should be accessable in class with this.$counter
+		// after call super - value of counter should be accessable in class with this.$counter
 		// in component you just need to call this.unsubscribeAll() in onDestroy
 		this.addSubscription(this.addSubscriptionLog()); //subscription option 1
 		this.subscribeStore(this.counter, this.subscribeStoreLog); //subscription option 2
