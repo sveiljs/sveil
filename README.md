@@ -2,7 +2,7 @@
 Sveil core (not for prod yet). 
 
 - Allow to subscribe for svelte stores (with unsubscribeAll option)
-- Allow to get current value of store with $ sign (emulate svelte file behaiour)
+- Allow to get current value of store with $ sign (emulate svelte store auto subscription behaiour)
 
 ## Basic example
 ```
