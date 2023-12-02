@@ -1,8 +1,13 @@
 # sveil (alpha version)
-Sveil core (not for prod yet). 
+Sveil core.
 
 - Allow to subscribe for svelte stores (with unsubscribeAll option)
 - Allow to get current value of store with $ sign (emulate svelte store auto subscription behaiour)
+
+## Instalation
+  ```
+	npm i @sveil/core
+  ```
 
 ## Basic example
 ```
